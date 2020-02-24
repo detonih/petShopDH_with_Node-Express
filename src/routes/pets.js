@@ -5,7 +5,8 @@ const {
   adicionarPet,
   buscarPet,
   contarPetsVacinados,
-  vacinarPet 
+  vacinarPet,
+  campanhaVacina 
 } = require('../controllers/PetsController');
 
 router.get('/listar', listarPets);
@@ -13,5 +14,6 @@ router.get('/adicionar/:nome/:tipo/:raca/:idade/:genero/:vacinado/:servicos', ad
 router.get('/buscar/:nome', buscarPet);
 router.get('/vacinados', contarPetsVacinados);
 router.get('/vacinar/:nome', vacinarPet);
+router.get('/campanha', campanhaVacina);
 
 module.exports = router;

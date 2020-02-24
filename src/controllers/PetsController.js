@@ -3,7 +3,8 @@ const {
   adicionarPetDatabase,
   buscarPetDatabase,
   contarVacinadosDatabase,
-  vacinarPetDatabase
+  vacinarPetDatabase,
+  campanhaVacinaDatabase
  } = require('../models/pet');
 
 const petController = {
@@ -48,13 +49,18 @@ const petController = {
   contarPetsVacinados: (req, res) => {
     const contagem = contarVacinadosDatabase();
 
-    res.send(contagem);
+    res.send(`Temos ${contagem.contarVaciandos.length} pets vacinados e ${contagem.contarNaoVaciados.length} não vacinados`);
   },
   vacinarPet: (req, res) => {
     const { nome } = req.params;
 
     res.send(vacinarPetDatabase(nome));
-  }
+  },
+  campanhaVacina: (req, res) => {
+    const campanha = campanhaVacinaDatabase();
+    res.send(`Total de pets vacinados: ${campanha.length}`)
+  },
+  
 }
 
 module.exports = petController;

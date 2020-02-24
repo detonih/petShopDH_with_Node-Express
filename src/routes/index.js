@@ -8,7 +8,8 @@ router.get('/', (req, res) => {
         adicionar: 'http://localhost:3000/pets/adicionar',
         buscar: 'http://localhost:3000/pets/buscar',
         vacinados: 'http://localhost:3000/pets/vacinados',
-        vacinar: 'http://localhost:3000/pets/vacinar'
+        vacinar: 'http://localhost:3000/pets/vacinar',
+        campanha: 'http://localhost:3000/pets/campanha',
     })
 })
 
