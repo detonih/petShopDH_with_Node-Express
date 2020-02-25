@@ -4,9 +4,7 @@ const { upperCaseFirstLetter } = require('../utils');
 const PetModel = {
 
 listarTodosPets: () => {
-  return petsDatabase.map(currVal => {
-    return currVal.nome
-  });
+  return petsDatabase;
 },
 
 adicionarPetDatabase: (novoPet) => {
@@ -58,6 +56,39 @@ campanhaVacinaDatabase: () => {
 
   return petsDatabase;
 },
+
+darBanhoPetDatabase: (nomePet) => {
+  for(let i = 0; i < petsDatabase.length; i++) {
+    if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
+      petsDatabase[i].servicos.push('banho');
+      return `O pet ${petsDatabase[i].nome} recebeu um banho. Serviços realizados: ${petsDatabase[i].servicos}`
+    } else {
+      'Pet não encontrado';
+    }
+  }
+},
+
+tosarPetDatabase: (nomePet) => {
+  for(let i = 0; i < petsDatabase.length; i++) {
+    if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
+      petsDatabase[i].servicos.push('tosa');
+      return `O pet ${petsDatabase[i].nome} recebeu uma tosa. Serviços realizados: ${petsDatabase[i].servicos}`
+    } else {
+      'Pet não encontrado';
+    }
+  }
+},
+
+apararUnhasPetDatabase: (nomePet) => {
+  for(let i = 0; i < petsDatabase.length; i++) {
+    if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
+      petsDatabase[i].servicos.push('aparar unhas');
+      return `O pet ${petsDatabase[i].nome} aparou as unhas. Serviços realizados: ${petsDatabase[i].servicos}`
+    } else {
+      'Pet não encontrado';
+    }
+  }
+}
 
 }
 module.exports = PetModel;
