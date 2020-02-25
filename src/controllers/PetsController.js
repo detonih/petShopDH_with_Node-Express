@@ -80,13 +80,17 @@ const petController = {
 
   vacinarPet: (req, res) => {
     const { nome } = req.params;
+    const vacinar = vacinarPetDatabase(nome);
 
-    res.send(vacinarPetDatabase(nome));
+    res.send(vacinar);
   },
 
   campanhaVacina: (req, res) => {
     const campanha = campanhaVacinaDatabase();
-    res.send(`Total de pets vacinados: ${campanha.length}`)
+    res.send(`Total de pets vacinados: ${campanha.length}.
+    Vacinados: ${campanha.map(currVal => {
+      return currVal.nome
+    })}`)
   },
 
   darBanhoPet: (req, res) => {

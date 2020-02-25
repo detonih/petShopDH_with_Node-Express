@@ -1,25 +1,23 @@
 const petsDatabase = require('../database/pets');
 const { upperCaseFirstLetter } = require('../utils');
 
-const PetModel = {
-
-listarTodosPets: () => {
+const listarTodosPets = () => {
   return petsDatabase;
-},
+}
 
-adicionarPetDatabase: (novoPet) => {
+const adicionarPetDatabase = (novoPet) => {
   petsDatabase.push(novoPet);
   console.log(petsDatabase)
-},
+}
 
-buscarPetDatabase: (nomePet) => {
+const buscarPetDatabase = (nomePet) => {
   const petsEcontrados = petsDatabase.filter(elem => {
     return elem.nome == upperCaseFirstLetter(nomePet);
   });
   return petsEcontrados;
-},
+}
 
-contarVacinadosDatabase: () => {
+const contarVacinadosDatabase = () => {
   const contarVaciandos = petsDatabase.filter(elem => {
     return elem.vacinado;
   });
@@ -32,9 +30,9 @@ contarVacinadosDatabase: () => {
     contarVaciandos,
     contarNaoVaciados
   }
-},
+}
 
-vacinarPetDatabase: (nomePet) => {
+const vacinarPetDatabase = (nomePet) => {
 
   for(let i = 0; i < petsDatabase.length; i++) {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
@@ -44,20 +42,17 @@ vacinarPetDatabase: (nomePet) => {
       'Pet não encontrado';
     }
   }
-},
+}
 
-campanhaVacinaDatabase: () => {
+const campanhaVacinaDatabase = () => {
   for(let i = 0; i < petsDatabase.length; i++) {
-    if(!petsDatabase[i].vacinado) {
-      petsDatabase[i].vacinado = true;
-    }
+    vacinarPetDatabase(petsDatabase[i].nome)
   }
-  console.log(petsDatabase)
 
   return petsDatabase;
-},
+}
 
-darBanhoPetDatabase: (nomePet) => {
+const darBanhoPetDatabase = (nomePet) => {
   for(let i = 0; i < petsDatabase.length; i++) {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
       petsDatabase[i].servicos.push('banho');
@@ -66,9 +61,9 @@ darBanhoPetDatabase: (nomePet) => {
       'Pet não encontrado';
     }
   }
-},
+}
 
-tosarPetDatabase: (nomePet) => {
+const tosarPetDatabase = (nomePet) => {
   for(let i = 0; i < petsDatabase.length; i++) {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
       petsDatabase[i].servicos.push('tosa');
@@ -77,9 +72,9 @@ tosarPetDatabase: (nomePet) => {
       'Pet não encontrado';
     }
   }
-},
+}
 
-apararUnhasPetDatabase: (nomePet) => {
+const apararUnhasPetDatabase = (nomePet) => {
   for(let i = 0; i < petsDatabase.length; i++) {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
       petsDatabase[i].servicos.push('aparar unhas');
@@ -90,5 +85,14 @@ apararUnhasPetDatabase: (nomePet) => {
   }
 }
 
-}
-module.exports = PetModel;
+module.exports = { 
+  listarTodosPets,
+  adicionarPetDatabase,
+  buscarPetDatabase,
+  contarVacinadosDatabase,
+  vacinarPetDatabase,
+  campanhaVacinaDatabase,
+  darBanhoPetDatabase,
+  tosarPetDatabase,
+  apararUnhasPetDatabase
+ }
