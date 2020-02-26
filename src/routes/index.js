@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
         campanha: 'http://localhost:3000/pets/campanha',
         banho: 'http://localhost:3000/pets/banho',
         tosar: 'http://localhost:3000/pets/tosar',
-        aparar: 'http://localhost:3000/pets/aparar'
+        aparar: 'http://localhost:3000/pets/aparar',
+        atender: 'http://localhost:3000/pets/atender'
     })
 })
 

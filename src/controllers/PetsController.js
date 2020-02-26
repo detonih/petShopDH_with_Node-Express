@@ -7,19 +7,15 @@ const {
   campanhaVacinaDatabase,
   darBanhoPetDatabase,
   tosarPetDatabase,
-  apararUnhasPetDatabase
+  apararUnhasPetDatabase,
+  atenderPetDatabase
  } = require('../models/pet');
+
+const { transformaBooleano } = require('../utils');
 
 const petController = {
   listarPets: (req, res) => {
-    const transformaBooleano = (boo) => {
-      if(boo == true) {
-        return 'sim'
-      } else if (boo == false) {
-        return 'não'
-      }
-    }
-
+    
     const todosOsPets = listarTodosPets().map(currVal => {
       return `
       Nome: ${currVal.nome},
@@ -68,8 +64,17 @@ const petController = {
 
   buscarPet: (req, res) => {
     const { nome } = req.params;
-    
-    res.send(buscarPetDatabase(nome))
+    const buscar = buscarPetDatabase(nome);
+    console.log(buscar)
+    res.send(`Encontramos seu pet:
+    Nome: ${buscar[0].nome},
+    tipo: ${buscar[0].tipo},
+    raça: ${buscar[0].raca},
+    idade: ${buscar[0].idade},
+    genero: ${buscar[0].genero},
+    vacinado: ${transformaBooleano(buscar[0].vacinado)},
+    servicos: ${buscar[0].servicos}
+    `)
   },
 
   contarPetsVacinados: (req, res) => {
@@ -109,6 +114,14 @@ const petController = {
     const { nome } = req.params;
 
     res.send(apararUnhasPetDatabase(nome));
+  },
+
+  atenderPet: (req, res) => {
+    const { nome, servicos } = req.params;
+
+    const atender = atenderPetDatabase(nome, servicos);
+
+    res.send(atender);
   }
   
 }

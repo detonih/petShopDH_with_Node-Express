@@ -37,6 +37,7 @@ const vacinarPetDatabase = (nomePet) => {
   for(let i = 0; i < petsDatabase.length; i++) {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
       petsDatabase[i].vacinado = true;
+      console.log(petsDatabase[i])
       return `O pet ${petsDatabase[i].nome} foi vacinado. Dados: ${petsDatabase[i].vacinado}`
     } else {
       'Pet não encontrado';
@@ -85,6 +86,36 @@ const apararUnhasPetDatabase = (nomePet) => {
   }
 }
 
+const atenderPetDatabase = (nomePet, servicos) => {
+  const nomeDoPet = upperCaseFirstLetter(nomePet);
+
+  const pagar = (nomePet, servicos) => {
+    
+    for(let i = 0; i < petsDatabase.length; i++) {
+      if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
+        petsDatabase[i].pagamento = [];
+        petsDatabase[i].pagamento.push({pagos: servicos});
+        console.log(petsDatabase[i])
+      } else {
+        'Pet não encontrado';
+      }
+    }
+  };
+
+  if(servicos == 'banho') {
+    darBanhoPetDatabase(nomeDoPet);
+    pagar(nomeDoPet, servicos);
+  } else if (servicos == 'tosar') {
+    tosarPetDatabase(nomeDoPet);
+    pagar(nomeDoPet, servicos);
+  } else if (servicos == 'aparar unhas') {
+    apararUnhasPetDatabase(nomeDoPet);
+    pagar(nomeDoPet, servicos);
+  }
+ 
+  return `O serviço e o pagamento foram realizados com sucesso! Volte sempre, ${nomeDoPet}`
+};
+
 module.exports = { 
   listarTodosPets,
   adicionarPetDatabase,
@@ -94,5 +125,6 @@ module.exports = {
   campanhaVacinaDatabase,
   darBanhoPetDatabase,
   tosarPetDatabase,
-  apararUnhasPetDatabase
+  apararUnhasPetDatabase,
+  atenderPetDatabase
  }

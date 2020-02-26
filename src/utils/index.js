@@ -4,6 +4,15 @@ const upperCaseFirstLetter = (string) => {
   });
 }
 
+const transformaBooleano = (boo) => {
+  if(boo == true) {
+    return 'sim'
+  } else if (boo == false) {
+    return 'não'
+  }
+}
+
 module.exports = {
-  upperCaseFirstLetter
+  upperCaseFirstLetter,
+  transformaBooleano
 }
