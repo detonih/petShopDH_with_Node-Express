@@ -1,5 +1,5 @@
 const petsDatabase = require('../database/pets');
-const { upperCaseFirstLetter } = require('../utils');
+const { upperCaseFirstLetter, transformaBooleano } = require('../utils');
 
 const listarTodosPets = () => {
   return petsDatabase;
@@ -38,7 +38,7 @@ const vacinarPetDatabase = (nomePet) => {
     if(petsDatabase[i].nome == upperCaseFirstLetter(nomePet)) {
       petsDatabase[i].vacinado = true;
       console.log(petsDatabase[i])
-      return `O pet ${petsDatabase[i].nome} foi vacinado. Dados: ${petsDatabase[i].vacinado}`
+      return `O pet ${petsDatabase[i].nome} foi vacinado. Vacinado: ${transformaBooleano(petsDatabase[i].vacinado)}`
     } else {
       'Pet não encontrado';
     }

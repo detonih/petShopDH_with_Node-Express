@@ -12,7 +12,16 @@ const transformaBooleano = (boo) => {
   }
 }
 
+const tratarVariavelVacinado = (vacinado) => {
+  if(vacinado == 'sim') {
+     return true;
+  } else if (vacinado == 'nao') {
+     return false;
+  }
+}
+
 module.exports = {
   upperCaseFirstLetter,
-  transformaBooleano
+  transformaBooleano,
+  tratarVariavelVacinado
 }

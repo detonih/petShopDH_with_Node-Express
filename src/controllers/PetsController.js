@@ -11,7 +11,7 @@ const {
   atenderPetDatabase
  } = require('../models/pet');
 
-const { transformaBooleano } = require('../utils');
+const { transformaBooleano, tratarVariavelVacinado } = require('../utils');
 
 const petController = {
   listarPets: (req, res) => {
@@ -38,14 +38,6 @@ const petController = {
     */
 
   const { nome, tipo, raca, idade, genero, vacinado, servicos } = req.params;
-
-  const tratarVariavelVacinado = (vacinado) => {
-    if(vacinado == 'sim') {
-       return true;
-    } else if (vacinado == 'nao') {
-       return false;
-    }
-  }
 
   const novoPet = {
     nome,
@@ -92,6 +84,7 @@ const petController = {
 
   campanhaVacina: (req, res) => {
     const campanha = campanhaVacinaDatabase();
+    
     res.send(`Total de pets vacinados: ${campanha.length}.
     Vacinados: ${campanha.map(currVal => {
       return currVal.nome
