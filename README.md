@@ -37,7 +37,7 @@ Observação: para acessar quaisquer rotas nesta aplicação o servidor deve est
 
 - #### Rota: listar
 
-[(http://localhost:3000/pets/listar)](http://localhost:3000/pets/listar)
+[http://localhost:3000/pets/listar](http://localhost:3000/pets/listar)
 
 Basta apenas acessar a rota para listar todos os pets existentes no banco de dados (um array de objetos).
 
@@ -54,6 +54,8 @@ Ao acessar esta rota, é necessário passar 7 (sete) parâmetros diretamente com
 - genero
 - vacinado
 - servicos
+
+Oberservação: o último parâmetro a ser passado são os serviços que serão dispostos dentro de um array no banco de dados. Assim, caso houver mais de um serviço, estes deverão ser separados por vírgula, assim como demonstrado no exemplo.
 
 Exemplo:
 
