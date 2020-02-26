@@ -32,10 +32,6 @@ const petController = {
   },
 
   adicionarPet: (req, res) => {
-    /* querys como teste:
-      http://localhost:3000/pets/adicionar/handu/cao/canino/15/M/sim/banho
-      http://localhost:3000/pets/adicionar/handu/cao/canino/15/M/nao/banho,tosa
-    */
 
   const { nome, tipo, raca, idade, genero, vacinado, servicos } = req.params;
 
@@ -84,7 +80,7 @@ const petController = {
 
   campanhaVacina: (req, res) => {
     const campanha = campanhaVacinaDatabase();
-    
+
     res.send(`Total de pets vacinados: ${campanha.length}.
     Vacinados: ${campanha.map(currVal => {
       return currVal.nome
