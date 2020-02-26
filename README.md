@@ -8,19 +8,31 @@ Desafio proposto como material complementar às aulas presenciais.
 
 ## Como utilizar este sistema:
 
-### Donwload
+### Abra o terminal e crie uma pasta (ou faça da forma que preferir)
+
+```
+mkdir petShopDH
+```
+
+### Acesse a pasta
+
+```
+cd petShopDH
+```
+
+### Faça o download do reposítorio
 
 ```
 git clone https://github.com/detonih/petShopDH_with_Node-Express.git
 ```
 
-### Instalar dependências
+### Instale as dependências
 
 ```
 npm i
 ```
 
-### Iniciar servidor
+### Inicie o servidor
 
 ```
 npm start
